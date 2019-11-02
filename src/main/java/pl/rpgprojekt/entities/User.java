@@ -22,9 +22,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     @NotBlank
     @Size(min = 1, max = 20, message = "Login musi mieć minimum 1 znak")
+    @Column(unique = true, nullable = false)
     private String login;
+
     @NotBlank
     @Size(min = 5, max = 30, message = "Hasło musi mieć minimum 5 znaków")
     private String password;

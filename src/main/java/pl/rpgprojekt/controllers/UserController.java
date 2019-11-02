@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping(name = "/user", produces = "text/html;charset=UTF-8")
+@RequestMapping(name = "/", produces = "text/html;charset=UTF-8")
 public class UserController {
 
     @PersistenceContext
@@ -26,37 +26,11 @@ public class UserController {
     @Autowired
     private MonsterDao monsterDao;
 
-    @GetMapping
-    public String method () {
+    @RequestMapping(value = "/showAllMonster", method = RequestMethod.GET)
+    public String showAllMonsters(Model monsters) {
+        monsters.addAttribute("monsters", monsterDao.getMon());
         return "showAllMonster";
     }
-
-
-//    @ModelAttribute("monsters")
-    /*@RequestMapping(value = "/showall", method = RequestMethod.GET)
-    public String showAllMonsters(Model model) {
-        model.addAttribute("monsters", monsterDao.getCategory());
-        return "showAllMonster";
-    }*/
-
-
-
-    @ModelAttribute("monsters")
-    public List<Monster> getCategory () {
-        List<Monster> list = new ArrayList<>();
-        Long x = 1L;
-
-        for (; ; ) {
-            list.add(entityManager.find(Monster.class, x));
-            if (entityManager.find(Monster.class, x) == null
-            ) {
-                break;
-            }
-            x++;
-        }
-        return list;
-    }
-
 
 
 }

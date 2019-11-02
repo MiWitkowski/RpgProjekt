@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>${monster.getName()}</title>
+    <title>Potwory i spółka</title>
 </head>
 <body>
 
@@ -19,8 +19,8 @@
         <th>Hp</th>
         <th>Strength</th>
     </tr>
-    ${monster.getName}
-    ${monster.getName}
+    ${monster.getName()}
+    ${monster.getName()}
     <c:forEach var="monster" items="${monsters}">
         <tr>
             <td>${monster.getName()}</td>

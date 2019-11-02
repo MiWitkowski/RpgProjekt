@@ -13,8 +13,8 @@ public class UserDao {
 
     @PersistenceContext
     EntityManager entityManager;
-    public void saveBook(User entity) {
-        entityManager.persist(entity);
+    public void register (User user) {
+        entityManager.persist(user);
     }
 
 }
