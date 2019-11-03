@@ -5,42 +5,44 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import java.math.BigInteger;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "monster")
 public class Monster {
 
+    public Monster () {
+    }
+
+    @Column(columnDefinition = "INT")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private int id;
 
     @NotBlank
     private String name;
 
-    @NotBlank
+    @NotNull
     @Min(1)
     @Max(100)
     private int hp;
 
-    @NotBlank
+    @NotNull
     private int strength;
 
-    public Monster () {
-    }
 
-    public Monster (BigInteger id, int hp, String name, int strength) {
+    public Monster (int id, int hp, String name, int strength) {
         this.id = id;
         this.hp = hp;
         this.name = name;
         this.strength = strength;
     }
 
-    public BigInteger getId () {
+    public int getId () {
         return id;
     }
 
-    public void setId (BigInteger id) {
+    public void setId (int id) {
         this.id = id;
     }
 

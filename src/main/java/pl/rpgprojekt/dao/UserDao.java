@@ -13,6 +13,7 @@ public class UserDao {
 
     @PersistenceContext
     EntityManager entityManager;
+
     public void register (User user) {
         entityManager.persist(user);
     }

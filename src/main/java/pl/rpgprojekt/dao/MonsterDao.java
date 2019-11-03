@@ -21,7 +21,6 @@ public class MonsterDao {
     @PersistenceContext
     EntityManager entityManager;
 
-    //   @ModelAttribute("monsters")
     public List<Monster> getMon () {
         Query query = entityManager.
                 createNativeQuery("select * from monster");
@@ -31,7 +30,7 @@ public class MonsterDao {
         List<Monster> result = new ArrayList<>(rows.size());
         for (Object[] row : rows) {
             result.add(new Monster(
-                    (BigInteger) row[0],
+                    (int) row[0],
                     (int) row[1],
                     (String) row[2],
                     (int) row[3]));

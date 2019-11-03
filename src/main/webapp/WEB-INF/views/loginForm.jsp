@@ -34,17 +34,7 @@
 </div>
 </body>
 </html>
-
-
-
-
-
-
 --%>
-
-
-
-
 
 <html>
 <head>
@@ -61,7 +51,5 @@
 </form>
 <br>
 <a href="/register"> Register yourself! </a>
-
-
 </body>
 </html>
