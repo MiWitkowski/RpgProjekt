@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Role;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -14,6 +15,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 
 @Entity
@@ -38,6 +40,9 @@ public class User {
     @NotBlank
     @Size(min = 5, message = "Hasło musi mieć minimum 5 znaków")
     private String password;
+
+    @ManyToMany
+    private Set<Role> roles;
 
     @NotNull
     @Min(1)
@@ -94,7 +99,17 @@ public class User {
     public void setHp (int hp) {
         this.hp = hp;
     }
-/*
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+
+    /*
 
     public int getStrength () {
         return strength;
