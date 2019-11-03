@@ -24,8 +24,6 @@ import javax.transaction.Transactional;
 @RequestMapping(name = "/", produces = "text/html;charset=UTF-8")
 public class UserController {
 
-    @PersistenceContext
-    EntityManager entityManager;
 
     @Autowired
     private MonsterDao monsterDao;
@@ -54,13 +52,6 @@ public class UserController {
         userDao.register(user);
         return "Udało się";
 
-
-
-        /*    User user = new User(login, bCryptPasswordEncoder.encode(password));
-        model.addAttribute("user"
-                , user);
-        entityManager.persist(user);
-    */
     }
 }
 
