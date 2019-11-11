@@ -18,6 +18,7 @@
         <th>Name</th>
         <th>Hp</th>
         <th>Strength</th>
+        <th>Walka</th>
     </tr>
     ${monster.getName()}
     ${monster.getName()}
@@ -26,6 +27,7 @@
             <td>${monster.getName()}</td>
             <td>${monster.getHp()}</td>
             <td>${monster.getStrength()}</td>
+            <td><a href="fight/${monster.getId()}">Walcz</a></td>
         </tr>
     </c:forEach>
 </table>

@@ -35,9 +35,6 @@ public class MonsterDao {
                     (String) row[2],
                     (int) row[3]));
         }
-
-
-        System.out.println(query.getResultList() + " Wyniki z bazy");
         return result;
 
     }

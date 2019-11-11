@@ -31,6 +31,8 @@ public class AppConfig implements WebMvcConfigurer {
         return viewResolver;
     }
 
+
+
     @Bean
     public LocalEntityManagerFactoryBean entityManagerFactory () {
         LocalEntityManagerFactoryBean emfb = new LocalEntityManagerFactoryBean();

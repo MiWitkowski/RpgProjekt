@@ -1,14 +1,6 @@
 package pl.rpgprojekt.entities;
 
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
-import org.mindrot.jbcrypt.BCrypt;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Role;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -19,69 +11,77 @@ import java.util.Set;
 
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
-
-    public User () {
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
-    @NotNull
-    private int lvl = 1;
-
-    @NotBlank
-    @Size(min = 1, max = 20, message = "Login musi mieć minimum 1 znak")
+    @Size(max = 50, message = "Nazwa może mieć maksymalnie 50 znaków")
     @Column(unique = true, nullable = false)
-    private String login;
+    private String username;
 
     @NotBlank
     @Size(min = 5, message = "Hasło musi mieć minimum 5 znaków")
     private String password;
 
-    @ManyToMany
+    private int enabled;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
+
+    //Game stats
     @NotNull
-    @Min(1)
+    @Column(columnDefinition = "int default 1")
+    private int lvl;
+    @NotNull
+    @Min(0)
     @Max(100)
-    private int hp = 100;
+    @Column(columnDefinition = "int default 100")
+    private int hp;
 
     @NotNull
-    @Min(1)
-    @Max(100)
-    private int strength = 5;
+    @Column(columnDefinition = "int default 5")
+    private int strength;
 
-
-    public User (String login, String password) {
-        this.login = login;
-        this.password = password;
+    //constructors
+    public User () {
     }
 
-    public User (String login, String password, int hp, int strength, int lvl) {
-        this.login = login;
+    public User (String username, String password) {
+        this.username = username;
         this.password = password;
-        //this.hp = 100;
-        //this.strength = 5;
-        //this.lvl = 1;
+        this.enabled = 1;
+        this.lvl = 1;
+        this.hp = 100;
+        this.strength = 5;
     }
 
-    public Long getId () {
+    public User (int id, String username) {
+        this.id = id;
+        this.username = username;
+    }
+
+
+    //getters and setters
+    public int getId () {
         return id;
     }
 
-    public void setId (Long id) {
+    public void setId (int id) {
         this.id = id;
     }
 
-    public String getLogin () {
-        return login;
+    public String getUsername () {
+        return username;
     }
 
-    public void setLogin (String login) {
-        this.login = login;
+    public void setUsername (String username) {
+        this.username = username;
     }
 
     public String getPassword () {
@@ -92,6 +92,31 @@ public class User {
         this.password = password;
     }
 
+    public Set<Role> getRoles () {
+        return roles;
+    }
+
+    public void setRoles (Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public int getEnabled () {
+        return enabled;
+    }
+
+    public void setEnabled (int enabled) {
+        this.enabled = enabled;
+    }
+
+
+    public int getLvl () {
+        return lvl;
+    }
+
+    public void setLvl (int lvl) {
+        this.lvl = lvl;
+    }
+
     public int getHp () {
         return hp;
     }
@@ -99,17 +124,6 @@ public class User {
     public void setHp (int hp) {
         this.hp = hp;
     }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
-
-
-    /*
 
     public int getStrength () {
         return strength;
@@ -119,7 +133,18 @@ public class User {
         this.strength = strength;
     }
 
-*/
-
+    @Override
+    public String toString () {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", enabled=" + enabled +
+                ", roles=" + roles +
+                ", lvl=" + lvl +
+                ", hp=" + hp +
+                ", strength=" + strength +
+                '}';
+    }
 }
 
