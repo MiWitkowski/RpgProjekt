@@ -46,7 +46,7 @@ public class User {
 
     @NotNull
     @Column(columnDefinition = "int default 5")
-    private int strength;
+    private int experience;
 
     //constructors
     public User () {
@@ -58,7 +58,7 @@ public class User {
         this.enabled = 1;
         this.lvl = 1;
         this.hp = 100;
-        this.strength = 5;
+        this.experience = 5;
     }
 
     public User (int id, String username) {
@@ -125,12 +125,12 @@ public class User {
         this.hp = hp;
     }
 
-    public int getStrength () {
-        return strength;
+    public int getExperience () {
+        return experience;
     }
 
-    public void setStrength (int strength) {
-        this.strength = strength;
+    public void setExperience (int experience) {
+        this.experience = experience;
     }
 
     @Override
@@ -143,7 +143,7 @@ public class User {
                 ", roles=" + roles +
                 ", lvl=" + lvl +
                 ", hp=" + hp +
-                ", strength=" + strength +
+                ", experience=" + experience +
                 '}';
     }
 }

@@ -21,10 +21,9 @@ public class MonsterDao {
     @PersistenceContext
     EntityManager entityManager;
 
-    public List<Monster> getMon () {
+    public List<Monster> getAllMonsters () {
         Query query = entityManager.
                 createNativeQuery("select * from monster");
-
 
         List<Object[]> rows = query.getResultList();
         List<Monster> result = new ArrayList<>(rows.size());
@@ -36,19 +35,11 @@ public class MonsterDao {
                     (int) row[3]));
         }
         return result;
-
     }
-}
 
-
-
-
-/*
-
-//    @ModelAttribute("monsters")
-    public Monster getMon (Long id) {
+    public Monster findById (int id) {
         return entityManager.find(Monster.class, id);
     }
-*/
 
+}
 

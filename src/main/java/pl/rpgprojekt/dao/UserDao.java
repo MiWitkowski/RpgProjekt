@@ -17,7 +17,6 @@ import java.util.List;
 @Repository
 @Transactional
 public class UserDao {
-//CRUD
 
     @PersistenceContext
     EntityManager entityManager;
@@ -53,7 +52,6 @@ public class UserDao {
         entityManager.remove(entityManager.find(User.class, id));
     }
 
-
     public String getCurrentUserLogin () {
         org.springframework.security.core.context.SecurityContext securityContext = SecurityContextHolder.getContext();
         Authentication authentication = securityContext.getAuthentication();
@@ -68,7 +66,7 @@ public class UserDao {
 
     }
 
-    public int currentUser () {
+    public int getCurrentUserId () {
         Query query2 = entityManager.createNativeQuery("select id from users where username = '" + getCurrentUserLogin() + "'");
         int id = (int) query2.getResultList().get(0);
         System.out.println(id);

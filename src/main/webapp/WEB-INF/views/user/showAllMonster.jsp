@@ -17,7 +17,7 @@
     <tr>
         <th>Name</th>
         <th>Hp</th>
-        <th>Strength</th>
+        <th>Experience</th>
         <th>Walka</th>
     </tr>
     ${monster.getName()}
@@ -26,7 +26,7 @@
         <tr>
             <td>${monster.getName()}</td>
             <td>${monster.getHp()}</td>
-            <td>${monster.getStrength()}</td>
+            <td>${monster.getExperience()}</td>
             <td><a href="fight/${monster.getId()}">Walcz</a></td>
         </tr>
     </c:forEach>

@@ -28,14 +28,14 @@ public class Monster {
     private int hp;
 
     @NotNull
-    private int strength;
+    private int experience;
 
 
-    public Monster (int id, int hp, String name, int strength) {
+    public Monster (int id, int hp, String name, int experience) {
         this.id = id;
         this.hp = hp;
         this.name = name;
-        this.strength = strength;
+        this.experience = experience;
     }
 
     public int getId () {
@@ -62,12 +62,12 @@ public class Monster {
         this.hp = hp;
     }
 
-    public int getStrength () {
-        return strength;
+    public int getExperience () {
+        return experience;
     }
 
-    public void setStrength (int strength) {
-        this.strength = strength;
+    public void setExperience (int experience) {
+        this.experience = experience;
     }
 
 
@@ -77,7 +77,7 @@ public class Monster {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", hp=" + hp +
-                ", strength=" + strength +
+                ", experience=" + experience +
                 '}';
     }
 }
