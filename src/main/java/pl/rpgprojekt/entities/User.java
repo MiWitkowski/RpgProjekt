@@ -109,14 +109,6 @@ public class User {
     }
 
 
-    public int getLvl () {
-        return lvl;
-    }
-
-    public void setLvl (int lvl) {
-        this.lvl = lvl;
-    }
-
     public int getHp () {
         return hp;
     }
@@ -131,6 +123,14 @@ public class User {
 
     public void setExperience (int experience) {
         this.experience = experience;
+    }
+
+    public int getLvl () {
+        return lvl;
+    }
+
+    public void setLvl (int lvl) {
+        this.lvl = lvl;
     }
 
     @Override

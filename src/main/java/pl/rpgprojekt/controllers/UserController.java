@@ -1,6 +1,8 @@
 package pl.rpgprojekt.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,15 +18,16 @@ import pl.rpgprojekt.dao.UserDao;
 import pl.rpgprojekt.entities.Monster;
 import pl.rpgprojekt.entities.User;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 @Controller
 @RequestMapping(value = "/user", produces = "text/html;charset=UTF-8")
 public class UserController {
 
-    @PersistenceContext
-    EntityManager entitymanager;
+
+
 
     @Autowired
     private MonsterDao monsterDao;
@@ -35,6 +38,12 @@ public class UserController {
     @Autowired
     private Fight fight;
 
+    @GetMapping()
+    public String userPanel (Model user) {
+        user.addAttribute("user", userDao.getCurrentUser());
+        userDao.recoverHp();
+        return "user/userPanel";
+    }
 
     @GetMapping(value = "/showAllMonster")
     public String showAllMonsters (Model monsters) {
@@ -47,9 +56,24 @@ public class UserController {
     public String fight (@PathVariable int monsterId) {
         User user = userDao.findById(userDao.getCurrentUserId());
         Monster monster = monsterDao.findById(monsterId);
+        if (user.getHp() <= 0) {
+            return "Masz za mało hp";
+        }
         fight.fight(monster, user);
         return "Walka";
     }
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

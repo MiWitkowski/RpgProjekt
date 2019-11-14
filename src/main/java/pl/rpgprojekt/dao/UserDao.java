@@ -1,5 +1,6 @@
 package pl.rpgprojekt.dao;
 
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,6 +14,8 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Repository
 @Transactional
@@ -71,5 +74,24 @@ public class UserDao {
         int id = (int) query2.getResultList().get(0);
         System.out.println(id);
         return id;
+    }
+
+    public User getCurrentUser () {
+        return findById(getCurrentUserId());
+    }
+
+
+    @Async
+    public void recoverHp () {
+        User user = getCurrentUser();
+        try {
+            Thread.sleep(5000);
+            if (user.getHp() <= 90) {
+                user.setHp(user.getHp() + 10);
+            } else {
+                user.setHp(100);
+            }
+        } catch (InterruptedException e) {
+        }
     }
 }
