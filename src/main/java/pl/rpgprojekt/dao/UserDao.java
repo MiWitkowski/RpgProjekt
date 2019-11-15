@@ -80,6 +80,13 @@ public class UserDao {
         return findById(getCurrentUserId());
     }
 
+    public void levelUp (User user) {
+        if (user.getExperience() >= 100) {
+            user.setLvl(user.getLvl() + 1);
+            user.setExperience(user.getExperience()-100);
+        }
+    }
+
 
     @Async
     public void recoverHp () {

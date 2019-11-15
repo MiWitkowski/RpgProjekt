@@ -40,7 +40,6 @@ public class User {
     private int lvl;
     @NotNull
     @Min(0)
-    @Max(100)
     @Column(columnDefinition = "int default 100")
     private int hp;
 
@@ -133,6 +132,19 @@ public class User {
         this.lvl = lvl;
     }
 
+
+
+/*
+    private int strength;
+
+    public void setStrength (int strength) {
+        this.strength = strength;
+    }
+    public int getStrength () {
+        return strength;
+    }
+*/
+
     @Override
     public String toString () {
         return "User{" +
@@ -144,6 +156,7 @@ public class User {
                 ", lvl=" + lvl +
                 ", hp=" + hp +
                 ", experience=" + experience +
+//                ", strength=" + strength +
                 '}';
     }
 }

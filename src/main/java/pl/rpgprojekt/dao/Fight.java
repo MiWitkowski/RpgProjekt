@@ -31,8 +31,7 @@ public class Fight {
 
         user.setHp(currentHp);
 
-        System.out.println(LocalDateTime.now());
-        System.out.println(currentHp);
+        userDao.levelUp(user);
 
         userDao.update(user);
 
