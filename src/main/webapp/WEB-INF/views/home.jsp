@@ -11,13 +11,14 @@
     <title>Witaj</title>
 </head>
 <body>
-Zaloguj się:
-<a href="/login"> Sign in </a>
+
+<h3>Zaloguj się:
+    <a href="/login"> Sign in </a>
 
 
-Zarejestruj się:
-<a href="/register"> Register yourself! </a>
-
+    Zarejestruj się:
+    <a href="/register"> Register yourself! </a>
+</h3>
 
 </body>
 </html>

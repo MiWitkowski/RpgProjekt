@@ -22,6 +22,11 @@
         text-align: left;
         padding: 8px;
     }
+
+    #info {
+        font-size: smaller;
+        color: red;
+    }
     </style>
 
 </head>
@@ -35,21 +40,17 @@
     </tr>
 
 
-    <%--
-    <c:forEach var="user" items="${user}">
---%>
-        <tr>
-            <td>${user.getUsername()}</td>
-            <td>${user.getHp()}</td>
-            <td>${user.getExperience()}</td>
-            <td>${user.getLvl()}</td>
-            <%--<td><a href="fight/${monster.getId()}">Walcz</a></td>--%>
-        </tr>
-<%--
-    </c:forEach>
---%>
+    <tr>
+        <td>${user.getUsername()}</td>
+        <td>${user.getHp()}</td>
+        <td>${user.getExperience()}</td>
+        <td>${user.getLvl()}</td>
+    </tr>
 </table>
 
+<a href="/user/showAllMonster">Walcz z potworami</a>
+<a href="user/rest">Odpoczynek</a>
+<p id="info">*Czas trwania odpoczynku zależy od ilości brakującego zdrowia</p>
 
 </body>
 </html>

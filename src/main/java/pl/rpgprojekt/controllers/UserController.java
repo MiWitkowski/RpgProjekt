@@ -1,11 +1,6 @@
 package pl.rpgprojekt.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.AsyncResult;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,15 +13,10 @@ import pl.rpgprojekt.dao.UserDao;
 import pl.rpgprojekt.entities.Monster;
 import pl.rpgprojekt.entities.User;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 @Controller
 @RequestMapping(value = "/user", produces = "text/html;charset=UTF-8")
 public class UserController {
-
-
 
 
     @Autowired
@@ -38,11 +28,21 @@ public class UserController {
     @Autowired
     private Fight fight;
 
+
     @GetMapping()
     public String userPanel (Model user) {
         user.addAttribute("user", userDao.getCurrentUser());
-        userDao.recoverHp();
         return "user/userPanel";
+    }
+
+    @GetMapping(value = "/rest")
+    @ResponseBody
+    public String rest () {
+        if (userDao.getCurrentUser().getHp() < 100) {
+            userDao.recoverHp();
+            return "Zostałeś uzdrowiony" + "<br>a href=\"javascript:history.back()\">Powrót</a>";
+        }
+        return "Twój poziom zdrowia jest maksymalny!" + "<br><a href=/user>Powrót</a>";
     }
 
     @GetMapping(value = "/showAllMonster")
@@ -63,17 +63,3 @@ public class UserController {
         return "Walka";
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

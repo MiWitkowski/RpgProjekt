@@ -10,6 +10,12 @@
 <html>
 <head>
     <title>Potwory i spółka</title>
+<style>
+    #link {padding-right: 30px;
+    text-align: left;
+        margin: 50px;
+    }
+</style>
 </head>
 <body>
 
@@ -30,7 +36,14 @@
             <td><a href="fight/${monster.getId()}">Walcz</a></td>
         </tr>
     </c:forEach>
+
+
 </table>
+<div id="link"><a href="javascript:history.back()">Powrót</a>
+</div>
+
+
+<a href=""></a>
 
 
 </body>

@@ -1,5 +1,6 @@
 package pl.rpgprojekt.entities;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -18,7 +19,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Size(max = 50, message = "Nazwa może mieć maksymalnie 50 znaków")
+    @Size(max = 50, message = "Login może mieć maksymalnie 50 znaków")
     @Column(unique = true, nullable = false)
     private String username;
 
@@ -33,8 +34,12 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
+    @OneToOne(mappedBy = "user")/*
+    @JoinTable(name = "user_authority", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))*/
+    private Set<Authorities> authorities;
 
-    //Game stats
+    //Game stats==========================================================================================
     @NotNull
     @Column(columnDefinition = "int default 1")
     private int lvl;
@@ -57,7 +62,7 @@ public class User {
         this.enabled = 1;
         this.lvl = 1;
         this.hp = 100;
-        this.experience = 5;
+        this.experience = 0;
     }
 
     public User (int id, String username) {

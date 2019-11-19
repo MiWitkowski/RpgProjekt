@@ -15,6 +15,7 @@ public class HomeController {
     @Autowired
     private UserDao userDao;
 
+
     @GetMapping("/")
     public String home () {
         return "home";
@@ -30,9 +31,18 @@ public class HomeController {
     public String processRegister (@RequestParam String username,
                                    @RequestParam String password,
                                    BCryptPasswordEncoder bCryptPasswordEncoder) {
-        User user = new User(username, bCryptPasswordEncoder.encode(password) );
+        User user = new User(username, bCryptPasswordEncoder.encode(password));
+        for (int i = 0; i < userDao.findAll().size(); i++) {
+            if (userDao.findAll().get(i).getUsername().equals(user.getUsername())) {
+                return "Użytkownik o podanym loginie już istnieje! "
+                        + "<a href=/>Cofnij</a>";
+            }
+        }
+
+
         userDao.create(user);
-        return "Udało się zarejestrować";
+        return "Udało się zarejestrować, Możesz się teraz zalogować \n"
+                + "<a href=/login>Zaloguj się</a>";
 
     }
 
