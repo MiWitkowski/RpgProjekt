@@ -15,13 +15,13 @@
 <form action="" method="POST">
     Login: <input type="text" name="username">
     <br/>
-    Password: <input type="password" name="password"/>
+    Hasło: <input type="password" name="password"/>
     <input type="submit" value="Create account"/>
     <br>
 </form>
 <br>
 
-<a href="/login"> Sign in! </a>
+<a href="/login"> Zaloguj się! </a>
 
 </body>
 </html>

@@ -40,9 +40,9 @@ public class UserController {
     public String rest () {
         if (userDao.getCurrentUser().getHp() < 100) {
             userDao.recoverHp();
-            return "Zostałeś uzdrowiony" + "<br>a href=\"javascript:history.back()\">Powrót</a>";
+            return "Zostałeś uzdrowiony" + "<br><a href=\"javascript:history.back()\">Powrót</a>";
         }
-        return "Twój poziom zdrowia jest maksymalny!" + "<br><a href=/user>Powrót</a>";
+        return "Twój poziom zdrowia jest maksymalny!" + "<br><a href=\"javascript:history.back()\">Powrót</a>";
     }
 
     @GetMapping(value = "/showAllMonster")
@@ -57,9 +57,12 @@ public class UserController {
         User user = userDao.findById(userDao.getCurrentUserId());
         Monster monster = monsterDao.findById(monsterId);
         if (user.getHp() <= 0) {
-            return "Masz za mało hp";
+            return "Masz za mało hp" + "<br>" +
+                    "<a href=\"javascript:history.back()\">Powrót</a>";
         }
         fight.fight(monster, user);
-        return "Walka";
+        return "Walka + " +
+                "<a href=\"javascript:history.back()\">Powrót</a><br>" +
+                "<a href=/user/fight/"+ monsterId +">Walcz ponownie</a>";
     }
 }

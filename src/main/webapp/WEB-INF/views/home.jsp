@@ -13,11 +13,11 @@
 <body>
 
 <h3>Zaloguj się:
-    <a href="/login"> Sign in </a>
+    <a href="/login"> Zaloguj się</a>
 
 
     Zarejestruj się:
-    <a href="/register"> Register yourself! </a>
+    <a href="/register"> Zarejestruj się! </a>
 </h3>
 
 </body>

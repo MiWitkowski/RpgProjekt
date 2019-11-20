@@ -34,10 +34,14 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    @OneToOne(mappedBy = "user")/*
+/*
+    @OneToOne(mappedBy = "user")*/
+/*
     @JoinTable(name = "user_authority", joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))*/
+            inverseJoinColumns = @JoinColumn(name = "role_id"))*//*
+
     private Set<Authorities> authorities;
+*/
 
     //Game stats==========================================================================================
     @NotNull

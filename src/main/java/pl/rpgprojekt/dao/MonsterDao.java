@@ -31,8 +31,8 @@ public class MonsterDao {
             result.add(new Monster(
                     (int) row[0],
                     (int) row[1],
-                    (String) row[2],
-                    (int) row[3]));
+                    (String) row[3],
+                    (int) row[2]));
         }
         return result;
     }

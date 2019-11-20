@@ -49,13 +49,12 @@ public class UserDao {
         return result;
     }
 
+    public void update (User user) {
+        entityManager.merge(user);
+    }
 
     public User findById (int id) {
         return entityManager.find(User.class, id);
-    }
-
-    public void update (User user) {
-        entityManager.merge(user);
     }
 
     public void delete (int id) {
@@ -71,9 +70,7 @@ public class UserDao {
                 login = ((UserDetails) authentication.getPrincipal()).getUsername();
             else if (authentication.getPrincipal() instanceof String)
                 login = (String) authentication.getPrincipal();
-
         return login;
-
     }
 
     public int getCurrentUserId () {
@@ -100,7 +97,7 @@ public class UserDao {
             while (user.getHp() < 100) {
                 if (user.getHp() <= 90) {
                     user.setHp(user.getHp() + 10);
-                    Thread.sleep(2000);
+                    Thread.sleep(1000);
                 } else {
                     user.setHp(100);
                 }

@@ -50,6 +50,8 @@
 
 <a href="/user/showAllMonster">Walcz z potworami</a>
 <a href="user/rest">Odpoczynek</a>
+<a href="/logout">Wyloguj się</a>
+
 <p id="info">*Czas trwania odpoczynku zależy od ilości brakującego zdrowia</p>
 
 </body>

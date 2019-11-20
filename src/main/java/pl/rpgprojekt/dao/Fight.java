@@ -2,12 +2,10 @@ package pl.rpgprojekt.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.ResponseBody;
 import pl.rpgprojekt.entities.Monster;
 import pl.rpgprojekt.entities.User;
 
 import javax.transaction.Transactional;
-import java.time.LocalDateTime;
 import java.util.Random;
 
 @Repository
