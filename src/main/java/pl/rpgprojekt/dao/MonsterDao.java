@@ -21,7 +21,12 @@ public class MonsterDao {
     @PersistenceContext
     EntityManager entityManager;
 
-    public List<Monster> getAllMonsters () {
+    public void create (Monster monster) {
+        entityManager.persist(monster);
+    }
+
+
+    public List<Monster> findAllMonsters () {
         Query query = entityManager.
                 createNativeQuery("select * from monster");
 

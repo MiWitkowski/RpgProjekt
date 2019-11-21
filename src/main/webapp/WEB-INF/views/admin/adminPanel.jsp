@@ -51,8 +51,14 @@ td, th {
         <th>
             <p><a href="admin/showUsers">Wyświetl użytkowników</a></p>
         </th>
+        <th>
+            <p><a href="admin/addMonster">Dodaj potworka</a></p>
+        </th>
+
     </tr>
 </table>
+
+<h2><a href="/logout">Wyloguj się</a></h2>
 
 </body>
 </html>

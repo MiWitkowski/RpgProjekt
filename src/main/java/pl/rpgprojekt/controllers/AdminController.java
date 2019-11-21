@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.rpgprojekt.dao.MonsterDao;
 import pl.rpgprojekt.dao.UserDao;
+import pl.rpgprojekt.entities.Monster;
 import pl.rpgprojekt.entities.User;
 
 @Controller
@@ -13,30 +15,53 @@ public class AdminController {
 
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private MonsterDao monsterDao;
 
     @GetMapping
     public String home () {
         return "admin/adminPanel";
     }
 
-    /*
-    @GetMapping
-    public void modifyUser (@RequestParam User user) {
+
+    @GetMapping(value = "/update/{userId")
+    public String modifyUser (@PathVariable int userId, @RequestParam User user) {
         userDao.update(user);
-    }
-*/
-/*
-    @GetMapping(value = "/deleteUser")
-    public String showDeleteUserForm () {
-    return "admin/deleteUser";
+        return "updateUser";
     }
 
-    @GetMapping(value = "/deleteUser")
-    public String processDelete (@RequestParam int id) {
-        userDao.delete(id);
-        return "redirect:showAllUsers" ;
+    @GetMapping(value = "/addMonster")
+    public String addMonsterForm () {
+        return "admin/addMonsterForm";
     }
-*/
+
+
+    @ResponseBody
+    @PostMapping(value = "/addMonster")
+    public String processMonster (@RequestParam int hp,
+                                   @RequestParam String name,
+                                   @RequestParam int experience) {
+        Monster monster = new Monster(hp, name, experience);
+        for (int i = 0; i < monsterDao.findAllMonsters().size(); i++) {
+            if (monsterDao.findAllMonsters().get(i).getName().equals(monster.getName())) {
+                return "Potwór o podanej nazwie już istnieje! "
+                        + "<a href=/>Cofnij</a>";
+            }
+        }
+        monsterDao.create(monster);
+        return "Udało się, Nowy potwór już jest dostępny.\n"
+                + "<br><a href=\"javascript:history.back()\">Powrót</a>";
+
+
+    }
+
+    @GetMapping(value = "/delete/{userId}")
+    @ResponseBody
+    public String showDeleteUserForm (@PathVariable int userId) {
+        userDao.delete(userId);
+        return "Użytkownik usunięty" + "<br><a href=\"javascript:history.back()\">Powrót</a>";
+    }
+
 
     @GetMapping(value = "/showUsers")
     public String showAllUsers (Model users) {

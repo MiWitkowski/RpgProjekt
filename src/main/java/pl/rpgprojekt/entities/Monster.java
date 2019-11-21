@@ -30,12 +30,18 @@ public class Monster {
     @NotNull
     private int experience;
 
-
-    public Monster (int id, int hp, String name, int experience) {
-        this.id = id;
+    public Monster (int hp, String name, int experience) {
         this.hp = hp;
         this.name = name;
         this.experience = experience;
+    }
+
+
+    public Monster (int id, int experience, String name, int hp) {
+        this.id = id;
+        this.experience = experience;
+        this.name = name;
+        this.hp = hp;
     }
 
     public int getId () {

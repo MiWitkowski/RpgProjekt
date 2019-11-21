@@ -13,7 +13,6 @@
 </head>
 <body>
 
-
 <table>
     <tr>
         <th>ID</th>
@@ -23,11 +22,13 @@
         <tr>
             <td>${user.getId()}</td>
             <td>${user.getUsername()}</td>
+            <td><a href="delete/${user.getId()}">Usuń</a></td>
+
 
         </tr>
     </c:forEach>
 </table>
-
+<a href="javascript:history.back()">Powrót</a>
 
 
 </body>

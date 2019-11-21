@@ -47,7 +47,7 @@ public class UserController {
 
     @GetMapping(value = "/showAllMonster")
     public String showAllMonsters (Model monsters) {
-        monsters.addAttribute("monsters", monsterDao.getAllMonsters());
+        monsters.addAttribute("monsters", monsterDao.findAllMonsters());
         return "user/showAllMonster";
     }
 
@@ -57,12 +57,12 @@ public class UserController {
         User user = userDao.findById(userDao.getCurrentUserId());
         Monster monster = monsterDao.findById(monsterId);
         if (user.getHp() <= 0) {
-            return "Masz za mało hp" + "<br>" +
+            return "<h3>Masz za mało życia. Odpocznij</h3>" + "<br>" +
                     "<a href=\"javascript:history.back()\">Powrót</a>";
         }
         fight.fight(monster, user);
-        return "Walka + " +
-                "<a href=\"javascript:history.back()\">Powrót</a><br>" +
-                "<a href=/user/fight/"+ monsterId +">Walcz ponownie</a>";
+        return "<h3>Wygrywasz</h3> " +
+                "<br><a href=\"javascript:history.back()\">Powrót</a>" +
+                "<br><a href=/user/fight/"+ monsterId +">Walcz ponownie</a>";
     }
 }

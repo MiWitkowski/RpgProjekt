@@ -21,13 +21,13 @@ public class HomeController {
         return "home";
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    @GetMapping(value = "/register")
     public String showRegisterForm () {
         return "registerForm";
     }
 
     @ResponseBody
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @PostMapping(value = "/register")
     public String processRegister (@RequestParam String username,
                                    @RequestParam String password,
                                    BCryptPasswordEncoder bCryptPasswordEncoder) {
@@ -43,7 +43,5 @@ public class HomeController {
         userDao.create(user);
         return "Udało się zarejestrować, Możesz się teraz zalogować \n"
                 + "<a href=/login>Zaloguj się</a>";
-
     }
-
 }

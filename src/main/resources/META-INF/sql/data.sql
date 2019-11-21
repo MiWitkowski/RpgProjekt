@@ -22,7 +22,7 @@ create table if not exists users
     enabled    tinyint(1)      null,
     id         int auto_increment
         primary key,
-    experience int default 5   not null,
+    experience int default 0   not null,
     hp         int default 100 not null,
     lvl        int default 1   not null,
     constraint username
