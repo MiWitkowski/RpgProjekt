@@ -37,14 +37,15 @@ public class UserDao {
 
     public List<User> findAll () {
         Query query = entityManager.
-                createNativeQuery("select id, username from users");
+                createNativeQuery("select id, username, enabled from users");
 
         List<Object[]> rows = query.getResultList();
         List<User> result = new ArrayList<>(rows.size());
         for (Object[] row : rows) {
             result.add(new User(
                     (int) row[0],
-                    (String) row[1]));
+                    (String) row[1],
+                    (int) row[2]));
         }
         return result;
     }
@@ -55,6 +56,16 @@ public class UserDao {
 
     public User findById (int id) {
         return entityManager.find(User.class, id);
+    }
+
+    public void banUnban (int id) {
+        User user = entityManager.find(User.class, id);
+        if (user.getEnabled() == 0) {
+            user.setEnabled(1);
+            entityManager.merge(user);
+        } else
+            user.setEnabled(0);
+            entityManager.merge(user);
     }
 
     public void delete (int id) {

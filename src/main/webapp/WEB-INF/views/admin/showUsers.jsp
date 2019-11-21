@@ -17,12 +17,15 @@
     <tr>
         <th>ID</th>
         <th>Login</th>
+        <th>Status konta</th>
     </tr>
     <c:forEach var="user" items="${users}">
         <tr>
             <td>${user.getId()}</td>
             <td>${user.getUsername()}</td>
+            <td>${user.getEnabled()}</td>
             <td><a href="delete/${user.getId()}">Usuń</a></td>
+            <td><a href="ban/${user.getId()}">Zbanuj/Odbanuj</a></td>
 
 
         </tr>

@@ -24,11 +24,13 @@ public class AdminController {
     }
 
 
-    @GetMapping(value = "/update/{userId")
-    public String modifyUser (@PathVariable int userId, @RequestParam User user) {
-        userDao.update(user);
-        return "updateUser";
+    @GetMapping(value = "/ban/{userId}")
+    @ResponseBody
+    public String banUser (@PathVariable int userId) {
+        userDao.banUnban(userId);
+        return "Status użytkownika zmieniony";
     }
+
 
     @GetMapping(value = "/addMonster")
     public String addMonsterForm () {
@@ -39,8 +41,8 @@ public class AdminController {
     @ResponseBody
     @PostMapping(value = "/addMonster")
     public String processMonster (@RequestParam int hp,
-                                   @RequestParam String name,
-                                   @RequestParam int experience) {
+                                  @RequestParam String name,
+                                  @RequestParam int experience) {
         Monster monster = new Monster(hp, name, experience);
         for (int i = 0; i < monsterDao.findAllMonsters().size(); i++) {
             if (monsterDao.findAllMonsters().get(i).getName().equals(monster.getName())) {

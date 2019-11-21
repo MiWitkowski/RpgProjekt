@@ -69,9 +69,10 @@ public class User {
         this.experience = 0;
     }
 
-    public User (int id, String username) {
+    public User (int id, String username, int enabled) {
         this.id = id;
         this.username = username;
+        this.enabled = enabled;
     }
 
 

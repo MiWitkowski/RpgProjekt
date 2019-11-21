@@ -43,12 +43,6 @@ td, th {
 <table>
     <tr>
         <th>
-            <p><a href="admin/modifyUser">Modyfikuj użytkownika</a></p>
-        </th>
-        <th>
-            <p><a href="admin/deleteUser">Usuń użytkownika</a></p>
-        </th>
-        <th>
             <p><a href="admin/showUsers">Wyświetl użytkowników</a></p>
         </th>
         <th>
