@@ -13,6 +13,9 @@ import pl.rpgprojekt.dao.UserDao;
 import pl.rpgprojekt.entities.Monster;
 import pl.rpgprojekt.entities.User;
 
+import java.util.Collections;
+import java.util.List;
+
 
 @Controller
 @RequestMapping(value = "/user", produces = "text/html;charset=UTF-8")
@@ -69,5 +72,13 @@ public class UserController {
                 "Straciłeś " + lostHp + " HP" +
                 "<br><a href=\"javascript:history.back()\">Powrót</a>" +
                 "<br><a href=/user/fight/"+ monsterId +">Walcz ponownie</a>";
+    }
+
+    @GetMapping(value = "/ranking")
+    public String ranking (Model users) {
+        List<User> userList = userDao.findAll();
+        Collections.sort(userList);
+        users.addAttribute("users", userList);
+        return "user/ranking";
     }
 }

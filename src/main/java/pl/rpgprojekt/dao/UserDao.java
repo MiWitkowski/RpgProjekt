@@ -37,7 +37,7 @@ public class UserDao {
 
     public List<User> findAll () {
         Query query = entityManager.
-                createNativeQuery("select id, username, enabled from users");
+                createNativeQuery("select id, username, enabled, lvl from users");
 
         List<Object[]> rows = query.getResultList();
         List<User> result = new ArrayList<>(rows.size());
@@ -45,7 +45,8 @@ public class UserDao {
             result.add(new User(
                     (int) row[0],
                     (String) row[1],
-                    (int) row[2]));
+                    (int) row[2],
+                    (int) row[3]));
         }
         return result;
     }

@@ -8,12 +8,13 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Objects;
 import java.util.Set;
 
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Comparable<User> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -69,12 +70,28 @@ public class User {
         this.experience = 0;
     }
 
-    public User (int id, String username, int enabled) {
+    public User (int id, String username, int enabled, int lvl) {
         this.id = id;
         this.username = username;
         this.enabled = enabled;
+        this.lvl = lvl;
     }
 
+    @Override
+    public int compareTo(User o) {
+        if(lvl>o.getLvl()) return -1;
+        if(lvl<o.getLvl()) return 1;
+        return 0;
+    }
+
+    /*    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(lvl, user.lvl);
+    }
+*/
 
     //getters and setters
     public int getId () {

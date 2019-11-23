@@ -2,15 +2,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: michal
-  Date: 14.11.19
-  Time: 09:10
+  Date: 23.11.19
+  Time: 10:08
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Panel użytkownika</title>
-
+    <title>Ranking</title>
     <style>table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
@@ -22,38 +21,29 @@
         text-align: left;
         padding: 8px;
     }
-
-    #info {
-        font-size: smaller;
-        color: red;
-    }
     </style>
 
 </head>
 <body>
+
 <table>
     <tr>
         <th>Name</th>
-        <th>Hp</th>
-        <th>Experience</th>
         <th>Level</th>
     </tr>
+    <c:forEach var="user" items="${users}">
+        <tr>
+            <td>${user.getUsername()}</td>
+            <td>${user.getLvl()}</td>
+        </tr>
+    </c:forEach>
 
 
-    <tr>
-        <td>${user.getUsername()}</td>
-        <td>${user.getHp()}</td>
-        <td>${user.getExperience()}</td>
-        <td>${user.getLvl()}</td>
-    </tr>
 </table>
 
-<a href="/user/showAllMonster">Walcz z potworami</a>
-<a href="/user/rest">Odpoczynek</a>
-<a href="/user/ranking">Ranking</a>
-<a href="/logout">Wyloguj się</a>
 
-<p id="info">*Czas trwania odpoczynku zależy od ilości brakującego zdrowia</p>
+<a href="javascript:history.back()">Powrót</a>
+
 
 </body>
 </html>
