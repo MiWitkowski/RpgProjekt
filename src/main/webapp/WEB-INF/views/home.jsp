@@ -12,25 +12,29 @@
     <title>Witaj</title>
 </head>
 <body>
+<sec:authorize access="isAnonymous()">
 
-<h3>Zaloguj się:
+<h3>
+    Zaloguj się:
     <a href="/login"> Zaloguj się</a>
-
 
     Zarejestruj się:
     <a href="/register"> Zarejestruj się! </a>
 
+    </sec:authorize>
+</h3>
+
 <%--==============================================--%>
 <br>
-    <sec:authorize access="hasAnyRole('ADMIN', 'USER')">
+<sec:authorize access="hasAnyRole('ADMIN', 'USER')">
+    <h2>
         <center><strong><a href="/user">Wejdź do gry</a></strong></center>
-    </sec:authorize>
+    </h2>
+</sec:authorize>
+<sec:authorize access="hasRole('ADMIN')">
+    <center><strong><a href="/admin">Przejdź do panelu admina</a></strong></center>
+</sec:authorize>
 
-    <sec:authorize access="hasRole('ADMIN')">
-        <center><strong><a href="/admin">Przejdź do panelu admina</a></strong></center>
-    </sec:authorize>
-
-</h3>
 
 </body>
 </html>
