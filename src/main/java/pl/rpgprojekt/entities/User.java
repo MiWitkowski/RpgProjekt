@@ -77,21 +77,6 @@ public class User implements Comparable<User> {
         this.lvl = lvl;
     }
 
-    @Override
-    public int compareTo(User o) {
-        if(lvl>o.getLvl()) return -1;
-        if(lvl<o.getLvl()) return 1;
-        return 0;
-    }
-
-    /*    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(lvl, user.lvl);
-    }
-*/
 
     //getters and setters
     public int getId () {
@@ -171,6 +156,13 @@ public class User implements Comparable<User> {
         return strength;
     }
 */
+
+    @Override
+    public int compareTo(User o) {
+        if(lvl>o.getLvl()) return -1;
+        if(lvl<o.getLvl()) return 1;
+        return 0;
+    }
 
     @Override
     public String toString () {

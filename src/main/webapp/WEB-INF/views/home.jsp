@@ -18,6 +18,9 @@
 
     Zarejestruj się:
     <a href="/register"> Zarejestruj się! </a>
+
+<br>
+<a href="/user">Wejdź do gry</a>
 </h3>
 
 </body>

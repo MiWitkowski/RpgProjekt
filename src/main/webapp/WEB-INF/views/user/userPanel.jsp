@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: michal
@@ -55,5 +56,15 @@
 
 <p id="info">*Czas trwania odpoczynku zależy od ilości brakującego zdrowia</p>
 
-</body>
+
+<%--=================================================================--%>
+
+
+
+<sec:authorize access="hasRole('ADMIN')">
+     <center><strong><a href="/admin">Przejdź do panelu admina</a></strong></center>
+</sec:authorize>
+
+
+    </body>
 </html>
