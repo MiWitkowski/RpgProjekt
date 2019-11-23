@@ -28,7 +28,8 @@ public class AdminController {
     @ResponseBody
     public String banUser (@PathVariable int userId) {
         userDao.banUnban(userId);
-        return "Status użytkownika zmieniony";
+        return "Status użytkownika zmieniony" +
+                "<br><a href=\"javascript:history.back()\">Powrót</a>";
     }
 
 
@@ -46,8 +47,8 @@ public class AdminController {
         Monster monster = new Monster(hp, name, experience);
         for (int i = 0; i < monsterDao.findAllMonsters().size(); i++) {
             if (monsterDao.findAllMonsters().get(i).getName().equals(monster.getName())) {
-                return "Potwór o podanej nazwie już istnieje! "
-                        + "<a href=/>Cofnij</a>";
+                return "Potwór o podanej nazwie już istnieje!" +
+                        "<br><a href=\"javascript:history.back()\">Powrót</a>";
             }
         }
         monsterDao.create(monster);
@@ -61,7 +62,8 @@ public class AdminController {
     @ResponseBody
     public String showDeleteUserForm (@PathVariable int userId) {
         userDao.delete(userId);
-        return "Użytkownik usunięty" + "<br><a href=\"javascript:history.back()\">Powrót</a>";
+        return "Użytkownik usunięty" +
+                "<br><a href=\"javascript:history.back()\">Powrót</a>";
     }
 
 

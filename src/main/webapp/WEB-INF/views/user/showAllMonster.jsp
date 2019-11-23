@@ -7,21 +7,33 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 <html>
 <head>
     <title>Potwory i spółka</title>
-<style>
-    #link {padding-right: 30px;
-    text-align: left;
-        margin: 50px;
+    <style>table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
     }
-</style>
+
+    td, th {
+        border: 3px solid darkred;
+        text-align: left;
+        padding: 8px;
+    }
+
+    #name {
+        width: 20%;
+    }
+    </style>
 </head>
 <body>
 
 <table>
     <tr>
-        <th>Name</th>
+        <th id="name">Name</th>
         <th>Hp</th>
         <th>Experience</th>
         <th>Walka</th>
@@ -39,11 +51,7 @@
 
 
 </table>
-<div id="link"><a href="javascript:history.back()">Powrót</a>
-</div>
-
-
-<a href=""></a>
+<a href="javascript:history.back()">Powrót</a>
 
 
 </body>

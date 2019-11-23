@@ -63,14 +63,17 @@ public class UserDao {
         if (user.getEnabled() == 0) {
             user.setEnabled(1);
             entityManager.merge(user);
-        } else
+        } else {
             user.setEnabled(0);
             entityManager.merge(user);
+        }
     }
 
     public void delete (int id) {
         entityManager.remove(entityManager.find(User.class, id));
     }
+
+
 
     public String getCurrentUserLogin () {
         org.springframework.security.core.context.SecurityContext securityContext = SecurityContextHolder.getContext();

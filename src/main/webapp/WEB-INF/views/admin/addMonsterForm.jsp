@@ -8,6 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <style>form{
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    input {
+        background-color: aliceblue;
+    }
+    </style>
     <title>Dodaj potworka</title>
 </head>
 <body>

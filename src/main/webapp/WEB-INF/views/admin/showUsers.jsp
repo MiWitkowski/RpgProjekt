@@ -10,6 +10,18 @@
 <html>
 <head>
     <title>Title</title>
+    <style>table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 4px solid blue;
+        text-align: left;
+        padding: 8px;
+    }
+    </style>
 </head>
 <body>
 

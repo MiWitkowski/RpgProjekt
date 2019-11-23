@@ -13,29 +13,18 @@
 <html>
 <head>
     <title>Panel Administratora</title>
-<style>table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
+    <style>table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-</style>
-
-    <%--
-    <link rel="stylesheet" type="text/css" href="css/styles.css" >
---%>
-
-    <%--<link rel="stylesheet" type="text/css" href="resources/css/styles.css">--%>
-    <%--<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/styles.css"/>--%>
-    <%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/styles.css"/>--%>
-    <%--<style>
-        @import url('/css/styles.css');
-    </style>--%>
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    </style>
 </head>
 <body>
 

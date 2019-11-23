@@ -14,11 +14,11 @@
     <style>table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
-        width: 50%;
+        width: 100%;
     }
 
     td, th {
-        border: 1px solid #dddddd;
+        border: 3px solid darkred;
         text-align: left;
         padding: 8px;
     }
