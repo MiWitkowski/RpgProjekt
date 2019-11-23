@@ -38,8 +38,6 @@ public class HomeController {
                         + "<a href=/>Cofnij</a>";
             }
         }
-
-
         userDao.create(user);
         return "Udało się zarejestrować, Możesz się teraz zalogować \n"
                 + "<a href=/login>Zaloguj się</a>";

@@ -10,19 +10,21 @@
 <html>
 <head>
     <title>Witaj</title>
+    <style>
+        a {
+            margin-right: 100px;
+            line-height: 250px;
+        }
+    </style>
 </head>
 <body>
 <sec:authorize access="isAnonymous()">
+    <center><h2>
+        <a href="/login"> Zaloguj się</a>
 
-<h3>
-    Zaloguj się:
-    <a href="/login"> Zaloguj się</a>
-
-    Zarejestruj się:
-    <a href="/register"> Zarejestruj się! </a>
-
-    </sec:authorize>
-</h3>
+        <a href="/register"> Zarejestruj się! </a>
+    </h2></center>
+</sec:authorize>
 
 <%--==============================================--%>
 <br>

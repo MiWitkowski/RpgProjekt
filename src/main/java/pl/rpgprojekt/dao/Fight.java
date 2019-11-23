@@ -26,12 +26,8 @@ public class Fight {
         } else if (user.getHp() < monster.getHp()) {
             currentHp = 0;
         }
-
         user.setHp(currentHp);
-
         userDao.levelUp(user);
-
         userDao.update(user);
-
     }
 }

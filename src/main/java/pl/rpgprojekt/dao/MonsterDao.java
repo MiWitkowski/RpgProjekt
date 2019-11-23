@@ -23,7 +23,6 @@ public class MonsterDao {
         entityManager.persist(monster);
     }
 
-
     public List<Monster> findAllMonsters () {
         Query query = entityManager.
                 createNativeQuery("select * from monster");

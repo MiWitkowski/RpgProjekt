@@ -32,16 +32,7 @@ public class User implements Comparable<User> {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-/*
-    @OneToOne(mappedBy = "user")*/
-/*
-    @JoinTable(name = "user_authority", joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))*//*
 
-    private Set<Authorities> authorities;
-*/
-
-    //Game stats==========================================================================================
     @NotNull
     @Column(columnDefinition = "int default 1")
     private int lvl;
@@ -54,7 +45,6 @@ public class User implements Comparable<User> {
     @Column(columnDefinition = "int default 5")
     private int experience;
 
-    //constructors
     public User () {
     }
 
@@ -75,7 +65,6 @@ public class User implements Comparable<User> {
     }
 
 
-    //getters and setters
     public int getId () {
         return id;
     }
@@ -160,7 +149,6 @@ public class User implements Comparable<User> {
                 ", lvl=" + lvl +
                 ", hp=" + hp +
                 ", experience=" + experience +
-//                ", strength=" + strength +
                 '}';
     }
 }
