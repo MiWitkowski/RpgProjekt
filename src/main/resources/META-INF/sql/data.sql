@@ -56,11 +56,15 @@ insert into monster (hp, name, experience) VALUE (5, "Goblin", 5);
 insert into monster (hp, name, experience) VALUE (10, "Troll", 10);
 insert into monster (hp, name, experience) VALUE (30, "Smok", 30);
 
-insert into users (username, password, enabled) VALUES ('testo', '$2a$10$rg2EQF1c5uunzFC1L.z2oub.va3ca2rTuBWmmwHcSi36qRYaaAg2a', true);
-insert into users (username, password, enabled) VALUES ('admin', '$2a$10$Wvj1EaJW6f9dbzBYMSyLkeb8hNq0TcKnsBPyGkBox9SopvMx0CKKG', true);
+insert into users (username, password, enabled)
+VALUES ('testo', '$2a$10$rg2EQF1c5uunzFC1L.z2oub.va3ca2rTuBWmmwHcSi36qRYaaAg2a', true);
+insert into users (username, password, enabled)
+VALUES ('admin', '$2a$10$Wvj1EaJW6f9dbzBYMSyLkeb8hNq0TcKnsBPyGkBox9SopvMx0CKKG', true);
 
 
 
-insert into authorities (username, authority) values ('admin', 'ROLE_ADMIN');
-insert into authorities (username, authority) values ('testo', 'ROLE_USER');
+insert into authorities (username, authority)
+values ('admin', 'ROLE_ADMIN');
+insert into authorities (username, authority)
+values ('testo', 'ROLE_USER');
 

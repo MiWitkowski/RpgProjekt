@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: michal
@@ -19,8 +20,16 @@
     Zarejestruj się:
     <a href="/register"> Zarejestruj się! </a>
 
+<%--==============================================--%>
 <br>
-<a href="/user">Wejdź do gry</a>
+    <sec:authorize access="hasAnyRole('ADMIN', 'USER')">
+        <center><strong><a href="/user">Wejdź do gry</a></strong></center>
+    </sec:authorize>
+
+    <sec:authorize access="hasRole('ADMIN')">
+        <center><strong><a href="/admin">Przejdź do panelu admina</a></strong></center>
+    </sec:authorize>
+
 </h3>
 
 </body>

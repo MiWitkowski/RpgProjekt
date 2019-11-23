@@ -1,14 +1,11 @@
 package pl.rpgprojekt.entities;
 
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
 import java.util.Set;
 
 
@@ -145,22 +142,10 @@ public class User implements Comparable<User> {
     }
 
 
-
-/*
-    private int strength;
-
-    public void setStrength (int strength) {
-        this.strength = strength;
-    }
-    public int getStrength () {
-        return strength;
-    }
-*/
-
     @Override
-    public int compareTo(User o) {
-        if(lvl>o.getLvl()) return -1;
-        if(lvl<o.getLvl()) return 1;
+    public int compareTo (User o) {
+        if (lvl > o.getLvl()) return -1;
+        if (lvl < o.getLvl()) return 1;
         return 0;
     }
 

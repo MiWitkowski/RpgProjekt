@@ -8,28 +8,28 @@ import javax.persistence.*;
 public class Authorities {
 
 
-    public Authorities() {
+    public Authorities () {
     }
 
-    public Authorities(String username, String authority) {
+    public Authorities (String username, String authority) {
         this.username = username;
         this.authority = authority;
     }
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "id", nullable = false)
-        private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private int id;
 
-        @Column(name = "username", nullable = false)
-        private String username;
+    @Column(name = "username", nullable = false)
+    private String username;
 
-        @Column(name = "authority", nullable = false)
-        private String authority;
+    @Column(name = "authority", nullable = false)
+    private String authority;
 
-        @OneToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "users")
-        private User user;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "users")
+    private User user;
 
 
     public int getId () {

@@ -56,15 +56,5 @@
 
 <p id="info">*Czas trwania odpoczynku zależy od ilości brakującego zdrowia</p>
 
-
-<%--=================================================================--%>
-
-
-
-<sec:authorize access="hasRole('ADMIN')">
-     <center><strong><a href="/admin">Przejdź do panelu admina</a></strong></center>
-</sec:authorize>
-
-
-    </body>
+</body>
 </html>

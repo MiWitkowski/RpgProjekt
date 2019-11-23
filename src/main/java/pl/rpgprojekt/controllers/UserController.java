@@ -67,11 +67,11 @@ public class UserController {
                     "<a href=\"javascript:history.back()\">Powrót</a>";
         }
         fight.fight(monster, user);
-        int lostHp = currentHp-user.getHp();
+        int lostHp = currentHp - user.getHp();
         return "<h3>Wygrywasz</h3> " +
                 "Straciłeś " + lostHp + " HP" +
                 "<br><a href=\"javascript:history.back()\">Powrót</a>" +
-                "<br><a href=/user/fight/"+ monsterId +">Walcz ponownie</a>";
+                "<br><a href=/user/fight/" + monsterId + ">Walcz ponownie</a>";
     }
 
     @GetMapping(value = "/ranking")

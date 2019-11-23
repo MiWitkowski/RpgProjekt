@@ -1,17 +1,9 @@
 package pl.rpgprojekt.dao;
 
-import org.springframework.scheduling.TaskScheduler;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.scheduling.support.PeriodicTrigger;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import pl.rpgprojekt.entities.Monster;
 import pl.rpgprojekt.entities.User;
 
 import javax.persistence.EntityManager;
@@ -20,9 +12,6 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledFuture;
 
 @Service
 @Transactional
@@ -73,7 +62,6 @@ public class UserDao {
     public void delete (int id) {
         entityManager.remove(entityManager.find(User.class, id));
     }
-
 
 
     public String getCurrentUserLogin () {

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import pl.rpgprojekt.dao.MonsterDao;
 import pl.rpgprojekt.dao.UserDao;
 import pl.rpgprojekt.entities.Monster;
-import pl.rpgprojekt.entities.User;
 
 @Controller
 @RequestMapping(value = "/admin", produces = "text/html;charset=UTF-8")
