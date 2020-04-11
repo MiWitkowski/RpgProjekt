@@ -1,4 +1,3 @@
-# Features
 # RpgProjekt
 
 #### Maven RPG game project with Spring (MVC and Security) and Hibernate.
