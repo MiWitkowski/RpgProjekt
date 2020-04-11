@@ -16,7 +16,7 @@
 - recover hp
 
 ##### Admin functionalities:
-- < the same like user > admin also be a player
+- < the same like user > admin also can be a player
 - get list of all users
 - add new enemies to database
 - remove user
