@@ -25,7 +25,7 @@ public class User implements Comparable<User> {
     @Size(min = 5, message = "Hasło musi mieć minimum 5 znaków")
     private String password;
 
-    private int enabled;
+    private boolean enabled;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
@@ -51,13 +51,13 @@ public class User implements Comparable<User> {
     public User (String username, String password) {
         this.username = username;
         this.password = password;
-        this.enabled = 1;
+        this.enabled = true;
         this.lvl = 1;
         this.hp = 100;
         this.experience = 0;
     }
 
-    public User (int id, String username, int enabled, int lvl) {
+    public User (int id, String username, boolean enabled, int lvl) {
         this.id = id;
         this.username = username;
         this.enabled = enabled;
@@ -97,11 +97,11 @@ public class User implements Comparable<User> {
         this.roles = roles;
     }
 
-    public int getEnabled () {
+    public boolean getEnabled () {
         return enabled;
     }
 
-    public void setEnabled (int enabled) {
+    public void setEnabled (boolean enabled) {
         this.enabled = enabled;
     }
 

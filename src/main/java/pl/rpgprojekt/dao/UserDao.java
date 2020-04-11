@@ -34,7 +34,7 @@ public class UserDao {
             result.add(new User(
                     (int) row[0],
                     (String) row[1],
-                    (int) row[2],
+                    (boolean) row[2],
                     (int) row[3]));
         }
         return result;
@@ -50,11 +50,11 @@ public class UserDao {
 
     public void banUnban (int id) {
         User user = entityManager.find(User.class, id);
-        if (user.getEnabled() == 0) {
-            user.setEnabled(1);
+        if (user.getEnabled() == false) {
+            user.setEnabled(true);
             entityManager.merge(user);
         } else {
-            user.setEnabled(0);
+            user.setEnabled(false);
             entityManager.merge(user);
         }
     }
@@ -88,7 +88,7 @@ public class UserDao {
     }
 
     public void levelUp (User user) {
-        if (user.getExperience() >= 100) {
+        while (user.getExperience() >= 100) {
             user.setLvl(user.getLvl() + 1);
             user.setExperience(user.getExperience() - 100);
         }
