@@ -32,8 +32,9 @@ public class HomeController {
                                    @RequestParam String password,
                                    BCryptPasswordEncoder bCryptPasswordEncoder) {
         User user = new User(username, bCryptPasswordEncoder.encode(password));
-        for (int i = 0; i < userDao.findAll().size(); i++) {
-            if (userDao.findAll().get(i).getUsername().equals(user.getUsername())) {
+
+        for (User u : userDao.findAll()) {
+            if (u.getUsername().equals(user.getUsername())) {
                 return "Użytkownik o podanym loginie już istnieje! "
                         + "<a href=/>Cofnij</a>";
             }
