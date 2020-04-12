@@ -4,9 +4,7 @@ package pl.rpgprojekt.dao;
 import org.springframework.stereotype.Repository;
 import pl.rpgprojekt.entities.Monster;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.*;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +14,23 @@ import java.util.List;
 @Transactional
 public class MonsterDao {
 
+
+
+    EntityManagerFactory factory = Persistence.createEntityManagerFactory("rpg_projektPersistenceUnit");
+
+    public EntityManager getEntityManager () {
+        return factory.createEntityManager();
+    }
+
+    EntityManager entityManager = getEntityManager();
+
+
+
+
+/*
     @PersistenceContext
     EntityManager entityManager;
+*/
 
     public void create (Monster monster) {
         entityManager.persist(monster);
