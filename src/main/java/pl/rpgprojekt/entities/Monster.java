@@ -86,4 +86,27 @@ public class Monster {
                 ", experience=" + experience +
                 '}';
     }
+
+    @Override
+    public boolean equals (Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Monster monster = (Monster) o;
+
+        if (id != monster.id) return false;
+        if (hp != monster.hp) return false;
+        if (experience != monster.experience) return false;
+        return name.equals(monster.name);
+
+    }
+
+    @Override
+    public int hashCode () {
+        int result = id;
+        result = 31 * result + name.hashCode();
+        result = 31 * result + hp;
+        result = 31 * result + experience;
+        return result;
+    }
 }
