@@ -37,11 +37,11 @@ public class AppConfig implements WebMvcConfigurer {
     }
 
     @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    public void addResourceHandlers (ResourceHandlerRegistry registry) {
         registry
                 .addResourceHandler("/resources/**")
                 .addResourceLocations("/resources/");
-    }
+        }
 
     @Bean
     public LocalEntityManagerFactoryBean entityManagerFactory () {
