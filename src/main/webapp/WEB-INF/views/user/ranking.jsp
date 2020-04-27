@@ -10,23 +10,18 @@
 <html>
 <head>
     <title>Ranking</title>
-    <style>table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
+    <link rel="stylesheet" href="/resources/css/bootstrap.css">
 
-    td, th {
-        border: 3px solid darkred;
-        text-align: left;
-        padding: 8px;
-    }
+    <style>
+        .table {width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+        }
     </style>
-
 </head>
 <body>
 
-<table>
+<table class="table table-info table-striped table-bordered">
     <tr>
         <th>Name</th>
         <th>Level</th>

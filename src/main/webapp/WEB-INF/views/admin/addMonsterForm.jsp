@@ -8,21 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <style>form {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    input {
-        background-color: aliceblue;
-    }
-    </style>
+    <link rel="stylesheet" href="/resources/css/bootstrap.css">
     <title>Dodaj potworka</title>
 </head>
-<body>
 
-<form action="" method="POST">
+<body>
+<form class="form-horizontal" action="" method="POST">
     Nazwa: <input type="text" name="name">
     <br/>
     Hp: <input type="number" name="hp"/>

@@ -10,29 +10,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+
+    <link rel="stylesheet" href="/resources/css/bootstrap.css">
+
     <title>Panel użytkownika</title>
 
-    <style>table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    td, th {
-        border: 3px solid darkred;
-        text-align: left;
-        padding: 8px;
-    }
-
-    #info {
-        font-size: smaller;
-        color: red;
-    }
+    <style>
+        .table {
+            width: 30%;
+        }
+        #info {
+            color: #FF2E43;
+            font-size: small;
+        }
     </style>
-
 </head>
 <body>
-<table>
+<table class="table table-secondary table-bordered table-striped">
     <tr>
         <th>Name</th>
         <th>Hp</th>

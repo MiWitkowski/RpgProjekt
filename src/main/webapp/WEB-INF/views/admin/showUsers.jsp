@@ -9,23 +9,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" href="/resources/css/bootstrap.css">
     <title>Title</title>
-    <style>table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    td, th {
-        border: 4px solid blue;
-        text-align: left;
-        padding: 8px;
-    }
-    </style>
 </head>
-<body>
 
-<table>
+<body>
+<table class="table table-striped">
     <tr>
         <th>ID</th>
         <th>Login</th>
@@ -38,13 +27,10 @@
             <td>${user.getEnabled()}</td>
             <td><a href="delete/${user.getId()}">Usuń</a></td>
             <td><a href="ban/${user.getId()}">Zbanuj/Odbanuj</a></td>
-
-
         </tr>
     </c:forEach>
 </table>
 <a href="javascript:history.back()">Powrót</a>
-
 
 </body>
 </html>

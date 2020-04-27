@@ -12,7 +12,11 @@
 <html>
 <head>
     <title>Potwory i spółka</title>
-    <style>table {
+    <link rel="stylesheet" href="/resources/css/bootstrap.css">
+
+    <style>
+
+        /*table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
         width: 100%;
@@ -23,23 +27,21 @@
         text-align: left;
         padding: 8px;
     }
-
+*/
     #name {
-        width: 20%;
+        width: 30%;
     }
     </style>
 </head>
 <body>
 
-<table>
+<table class="table table-striped" id="name">
     <tr>
         <th id="name">Name</th>
         <th>Hp</th>
         <th>Experience</th>
         <th>Walka</th>
     </tr>
-    ${monster.getName()}
-    ${monster.getName()}
     <c:forEach var="monster" items="${monsters}">
         <tr>
             <td>${monster.getName()}</td>

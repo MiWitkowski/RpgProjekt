@@ -12,32 +12,20 @@
 
 <html>
 <head>
+    <link rel="stylesheet" href="/resources/css/bootstrap.css">
     <title>Panel Administratora</title>
-    <style>table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-    </style>
 </head>
 <body>
 
 <h1>Panel administratora</h1>
-<table>
+<table class="table table-striped">
     <tr>
         <th>
-            <p><a href="admin/showUsers">Wyświetl użytkowników</a></p>
+            <a href="admin/showUsers">Wyświetl użytkowników</a>
         </th>
         <th>
-            <p><a href="admin/addMonster">Dodaj potworka</a></p>
+            <a href="admin/addMonster">Dodaj potworka</a>
         </th>
-
     </tr>
 </table>
 
