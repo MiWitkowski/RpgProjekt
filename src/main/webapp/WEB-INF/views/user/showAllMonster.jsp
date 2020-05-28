@@ -15,20 +15,7 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.css">
 
     <style>
-
-        /*table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    td, th {
-        border: 3px solid darkred;
-        text-align: left;
-        padding: 8px;
-    }
-*/
-    #name {
+    #monsterName {
         width: 30%;
     }
     </style>
@@ -37,7 +24,7 @@
 
 <table class="table table-striped" id="name">
     <tr>
-        <th id="name">Name</th>
+        <th id="monsterName">Name</th>
         <th>Hp</th>
         <th>Experience</th>
         <th>Walka</th>

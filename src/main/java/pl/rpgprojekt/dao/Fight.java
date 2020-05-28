@@ -1,14 +1,14 @@
 package pl.rpgprojekt.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import pl.rpgprojekt.entities.Monster;
 import pl.rpgprojekt.entities.User;
 
 import javax.transaction.Transactional;
 import java.util.Random;
 
-@Repository
+@Service
 @Transactional
 public class Fight {
 

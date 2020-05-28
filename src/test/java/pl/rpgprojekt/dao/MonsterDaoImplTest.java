@@ -5,15 +5,15 @@ import org.junit.Test;
 import pl.rpgprojekt.entities.Monster;
 
 
-public class MonsterDaoTest {
+public class MonsterDaoImplTest {
 
-    private MonsterDao monsterDao = new MonsterDao();
+    private MonsterDaoImpl monsterDaoImpl = new MonsterDaoImpl();
 
     @Test
     public void doExist () throws Exception {
 
         //should return Monster(id:1, experience:5, name:"Goblin", hp:5)
-        Monster ada = monsterDao.findById(1);
+        Monster ada = monsterDaoImpl.findById(1);
 
         System.out.println(ada);
 
