@@ -7,6 +7,9 @@ import javax.persistence.*;
 @Table(name = "role")
 public class Role {
 
+    public Role () {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "role_id")

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-//@Transactional
+@Transactional
 public class UserDaoImpl implements UserDao{
 
     @PersistenceContext

@@ -1,14 +1,10 @@
 package pl.rpgprojekt.dao;
 
-import org.springframework.stereotype.Repository;
 import pl.rpgprojekt.entities.User;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 
-//@Repository
-@Transactional
 public interface UserDao {
     public void create (User user);
 

@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @Repository
-//@Transactional
+@Transactional
 public class MonsterDaoImpl implements MonsterDao {
 
     //Work with unit test.
