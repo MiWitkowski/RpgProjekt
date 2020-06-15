@@ -23,7 +23,7 @@
 - ban user
 
 ##### To do:
-- fix ban function (admin can ban himself)
+- fix ban function (admin can ban himself) - done
 - fix register form (User has no role in database - need to set it manually)
 - add personally profile picture 
 
