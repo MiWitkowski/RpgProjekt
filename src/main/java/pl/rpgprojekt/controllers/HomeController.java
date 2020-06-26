@@ -15,6 +15,8 @@ public class HomeController {
     @Autowired
     private UserDao userDao;
 
+    private final String BACK = "<br><a href=\"javascript:history.back()\">Powrót</a>";
+
 
     @GetMapping("/")
     public String home () {
@@ -32,11 +34,10 @@ public class HomeController {
                                    @RequestParam String password,
                                    BCryptPasswordEncoder bCryptPasswordEncoder) {
         User user = new User(username, bCryptPasswordEncoder.encode(password));
-
         for (User u : userDao.findAll()) {
             if (u.getUsername().equals(user.getUsername())) {
                 return "Użytkownik o podanym loginie już istnieje! "
-                        + "<a href=/>Cofnij</a>";
+                        + BACK;
             }
         }
         userDao.create(user);

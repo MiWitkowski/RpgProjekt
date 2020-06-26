@@ -17,6 +17,9 @@ public class AdminController {
     @Autowired
     private MonsterDao monsterDao;
 
+    private final String BACK = "<br><a href=\"javascript:history.back()\">Powrót</a>";
+
+
     @GetMapping
     public String home () {
         return "admin/adminPanel";
@@ -26,9 +29,13 @@ public class AdminController {
     @GetMapping(value = "/ban/{userId}")
     @ResponseBody
     public String banUser (@PathVariable int userId) {
+        if (userDao.findById(userId).getUsername().equalsIgnoreCase("admin")) {
+            return "Niedozwolona akcja" +
+                    BACK;
+        }
         userDao.banUnban(userId);
         return "Status użytkownika zmieniony" +
-                "<br><a href=\"javascript:history.back()\">Powrót</a>";
+                BACK;
     }
 
 
@@ -47,12 +54,12 @@ public class AdminController {
         for (int i = 0; i < monsterDao.findAllMonsters().size(); i++) {
             if (monsterDao.findAllMonsters().get(i).getName().equals(monster.getName())) {
                 return "Potwór o podanej nazwie już istnieje!" +
-                        "<br><a href=\"javascript:history.back()\">Powrót</a>";
+                        BACK;
             }
         }
         monsterDao.create(monster);
         return "Udało się, Nowy potwór już jest dostępny.\n"
-                + "<br><a href=\"javascript:history.back()\">Powrót</a>";
+                + BACK;
 
 
     }
@@ -60,9 +67,13 @@ public class AdminController {
     @GetMapping(value = "/delete/{userId}")
     @ResponseBody
     public String showDeleteUserForm (@PathVariable int userId) {
+        if (userDao.findById(userId).getUsername().equalsIgnoreCase("admin")) {
+            return "Niedozwolona akcja" +
+                    BACK;
+        }
         userDao.delete(userId);
         return "Użytkownik usunięty" +
-                "<br><a href=\"javascript:history.back()\">Powrót</a>";
+                BACK;
     }
 
 
