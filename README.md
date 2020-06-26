@@ -23,10 +23,10 @@
 - ban user
 
 ##### To do:
-- fix ban function (admin can ban himself)
+- fix ban function (admin can ban himself) - done
 - fix register form (User has no role in database - need to set it manually)
 - add personally profile picture 
-
+- exception when special characters entered e.g. user or monster name also problem with password 
 
 
 
