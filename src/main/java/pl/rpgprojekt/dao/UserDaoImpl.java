@@ -1,9 +1,11 @@
 package pl.rpgprojekt.dao;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
+import pl.rpgprojekt.entities.Role;
 import pl.rpgprojekt.entities.User;
 
 import javax.persistence.EntityManager;
@@ -11,19 +13,31 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 @Repository
 @Transactional
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl implements UserDao {
 
     @PersistenceContext
     EntityManager entityManager;
 
+    @Autowired
+    RoleDao roleDao;
+
     @Override
     public void create (User user) {
+        setUserRole(user);
         entityManager.persist(user);
     }
+
+    public void setUserRole (User user) {
+        Role userRole = roleDao.findByName("ROLE_USER");
+        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+    }
+
 
     @Override
     public List<User> findAll () {
